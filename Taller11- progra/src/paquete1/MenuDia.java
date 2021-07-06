@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package paquete2;
+package paquete1;
 
 /**
  *
@@ -43,9 +43,11 @@ public class MenuDia extends Menu {
 
     @Override
     public String toString() {
-        
-        String cadena = String.format("---- Menu del dia ----\n%sPostre: %.2f$\n"
-                + "\tBebida: %.2f$\n", super.toString(), valPostre, valBebida);
+        String cadena = String.format("============== Menu del dia ===============\n"
+                + "%s\n\tPostre: %.2f $\n"
+                + "\tBebida: %.2f $\n"
+                + "\tValor Menu: %.2f\n", super.toString(), valPostre, 
+                valBebida, valMenu);
         return cadena;
     }
 

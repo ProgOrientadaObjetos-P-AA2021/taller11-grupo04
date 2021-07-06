@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package paquete2;
+package paquete1;
 
 import java.util.ArrayList;
 
@@ -41,11 +41,11 @@ public class Cuenta {
     }
 
     public void establecerIva(double n) {
-        iva = n / 100;
+        iva = n;
     }
 
     public void establecerValTotal() {
-        valTotal = subtotal + iva;
+        valTotal = subtotal + (iva / 100);
     }
 
     public String obtenerNomCliente() {
@@ -70,9 +70,13 @@ public class Cuenta {
 
     @Override
     public String toString() {
-        String cadena = String.format("Nombre del cliente: %s\n"
-                + "Subtotal: %.2f$\nIva: %.2f$\n"
-                + "\n---- Listado de Menus ----\n", nomCliente, subtotal, iva);
+        String cadena = String.format("======= C U E N T A - A - P A G A R ======\n"
+                + "\tNombre del cliente: %s\n"
+                + "\tSubtotal: %.2f $\n\tIva: %.2f $ \n"
+                + "===========================================\n"
+                + "============ Listado de Menus =============\n"
+                + "===========================================\n\n",
+                nomCliente, subtotal, iva);
 
         for (int i = 0; i < listaMenu.size(); i++) {
             cadena = String.format("%s"
@@ -80,9 +84,11 @@ public class Cuenta {
                     cadena,
                     listaMenu.get(i));
         }
-        cadena = String.format("%s\nValor a cancelar total: %.2f$", cadena, valTotal);
+        cadena = String.format("%sValor a cancelar total: %.2f $",
+                cadena, valTotal);
 
         return cadena;
+        
 
     }
 
